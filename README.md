@@ -1,7 +1,7 @@
-# SKYLINE — Responsive Event and Discovery Portal
+# SKYLINE — Event Discovery Portal
 
 **Course:** K-Explore – Web Designing  
-**Project:** Design and Develop a Responsive Event Management Website  
+**Project:** Responsive Event Management Website  
 **Author:** Ekantika Kumari  
 **Roll Number:** 24155625  
 **GitHub Repository:** https://github.com/EkantikaK/skyline  
@@ -11,59 +11,32 @@
 
 ## Overview
 
-SKYLINE is an event discovery and reservation platform designed to browse curated experiences across cinema, music festivals, culinary pop-ups, and regional getaways. The application combines custom interactive interface elements with a robust client-side event management pipeline, complete with form validation and local storage pass persistence.
+SKYLINE is an event discovery and pass reservation portal for curated film screenings, live gigs, food experiences, and travel getaways.
+
+* **Original Visual Art:** The artwork, including the interactive street signpost, cutouts, sky background, and custom shaders, is entirely hand-drawn by self.
+* **Viewing Experience:** The website is responsive, but a laptop or desktop screen is strongly recommended to get the full visual experience, animations, and hover interactions. Site may lack phone optimization since it has been developed using custom pieces.
 
 ---
 
-## Project Objectives
+## Key Features
 
-* Deliver an interactive hero experience with layered visual staging and dynamic system dispatching.
-* Structure and categorize event listings across distinct cultural districts (Cinema & Shows, Live Experiences, Brunch & Dining, Getaways & Voyages).
-* Enforce structural card dimensions while accommodating category-specific media aspect ratios.
-* Implement a JavaScript-based registration engine featuring strict input validation, real-time error reporting, and toast feedback.
-* Provide client-side reservation persistence via LocalStorage with full view, badge count, and cancellation support.
-* Maintain a responsive design architecture supporting desktop, tablet, and mobile viewport widths.
-
----
-
-## Technical Specifications
-
-* **Markup:** HTML5 semantic structure, viewport configuration, accessible modal wrappers.
-* **Styling:** CSS3 variables, CSS Grid, Flexbox, custom keyframe animations, and layered backdrops.
-* **Logic:** Vanilla JavaScript (ES6+), DOM manipulation, regex-based validation, state handling, and LocalStorage APIs.
-* **Typography & Icons:** Space Grotesk, Syne, Plus Jakarta Sans, and FontAwesome 6.
-* **Hosting & CI/CD:** GitHub, Vercel edge deployment.
+* **Interactive Signpost:** Directional signs on the handmade wooden pole light up with custom halftone shaders on hover.
+* **Live System Dispatch:** A dynamic greeting board that updates with your real-time clock and current date.
+* **Four Curated Districts:**
+  * **Movies:** 35mm screenings styled inside a retro film reel.
+  * **Events:** Concerts and festivals displayed in poster format.
+  * **Diners:** Tasting menus and cafe workshops styled as a bistro menu.
+  * **Travel:** Weekend escapes presented as vintage postcards.
+* **Pass Booking & Validation:** Modals with real-time validation for name, email format, and 10-digit phone number.
+* **Digital Wallet:** Registered passes persist across sessions using LocalStorage. Users can view active passes or cancel reservations directly from the drawer.
 
 ---
 
-## Core Architecture and Features
+## Tech Stack
 
-### 1. Interactive Signpost Stage
-* Staged vector backdrop with procedural cloud movement.
-* Interactive signpost hotspots paired with real-time shader overlays on hover.
-* Live dispatch component calculating greeting intervals, system time, and date.
-* Interactive cursor-tracked radial shader mask on brand typography.
-
-### 2. Experience Districts and Event Carousels
-* **Cinema & Shows:** Curated screenings presented in a 35mm film-strip frame with a vertical poster aspect ratio (~2:3).
-* **Live Experiences:** Concerts and festivals displayed in a wide landscape poster format.
-* **Brunch & Dining:** Tasting tables and artisan sessions framed in a cafe menu format.
-* **Getaways & Voyages:** Curated regional itineraries with expedition airmail framing.
-* Unified outer card dimensions of 880x440px across all districts to ensure visual consistency.
-
-### 3. Pass Reservation and Client Validation
-* Dynamic modal displaying event details, schedules, venues, and pricing.
-* Form validation enforcing:
-  * Name field verification (minimum 3 characters).
-  * Valid email pattern verification via regular expressions.
-  * 10-digit mobile number numerical verification.
-* Accessible click-outside handling for modal overlays and wallet drawers.
-
-### 4. Data Persistence (Pass Wallet)
-* Client-side pass storage using the `metro_passes` local storage key.
-* Dynamic counter badge showing active registrations in real time.
-* Slide-out wallet drawer displaying pass holder credentials, event details, and booking timestamps.
-* Pass cancellation handler to remove individual reservations directly from local storage.
+* **Frontend:** HTML5, CSS3 (Grid & Flexbox), Vanilla JavaScript (ES6+)
+* **Typography & Icons:** FontAwesome 6, Google Fonts (Syne, Space Grotesk, Plus Jakarta Sans)
+* **Storage & Hosting:** LocalStorage API, Git, GitHub, Vercel
 
 ---
 
@@ -71,38 +44,36 @@ SKYLINE is an event discovery and reservation platform designed to browse curate
 
 ```text
 skyline/
-├── index.html        Main markup structure and application containers
+├── index.html        Main application structure
 ├── css/
-│   └── style.css     Theme variables, layouts, and responsive breakpoints
+│   └── style.css     Stylesheets, theme colors, and layout rules
 ├── js/
-│   └── app.js        District data arrays, carousel state, validation, storage
-├── assets/           Optimized images, shaders, and UI cutouts
-└── README.md         Project documentation and submission details
+│   └── app.js        District data, carousels, validation, and storage
+├── assets/           Handmade art, custom cutouts, and event visuals
+└── README.md         Project documentation
 ```
 
 ---
 
-## Local Development and Deployment Setup
+## Local Setup
 
-To clone, run, or verify this project locally on your machine:
+To run this project locally:
 
-1. Clone the repository using Git:
+1. Clone the repository:
 ```bash
 git clone [https://github.com/EkantikaK/skyline.git](https://github.com/EkantikaK/skyline.git)
 ```
 
-2. Navigate into the cloned repository folder:
+2. Enter the directory:
 ```bash
 cd skyline
 ```
 
-3. Launch the application:
-* Direct launch: Double-click `index.html` to open it in any modern browser (Chrome, Edge, Firefox, Safari).
-* Development server: If using VS Code, right-click `index.html` and select **Open with Live Server**.
+3. Open `index.html` directly in any web browser or launch it using VS Code Live Server.
 
 ---
 
-## Submission Summary
+## Submission Details
 
 * **Student Name:** Ekantika Kumari
 * **Roll Number:** 24155625
