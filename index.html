@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKYLINE ☁︎ See What’s Happening</title>
+  
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Space+Grotesk:wght@600;700;800&family=Syne:wght@800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Top Floating Capsule Navigation -->
+  <header class="top-nav">
+    <div class="nav-cluster nav-left">
+      <div class="nav-pill-badge">A K-Explore Project</div>
+      <button class="nav-capsule-btn" onclick="openInfoModal('info')">INFO</button>
+    </div>
+
+    <!-- Centered Inner Brand -->
+    <div class="inner-brand" id="innerBrand" onclick="navigateTo('home')">
+      <div class="nav-logo-stage">
+        <img src="assets/logo.png" alt="SKYLINE" class="nav-logo-base" />
+        <img src="assets/shader_logo.png" alt="" class="nav-logo-shader" id="navLogoShader" />
+      </div>
+    </div>
+
+    <div class="nav-cluster nav-right">
+      <button class="nav-capsule-btn" onclick="openInfoModal('faq')">FAQS</button>
+      <button class="nav-capsule-btn wallet-trigger" id="walletBtn">
+        MY PASSES <span class="wallet-badge" id="walletCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Viewport App Shell -->
+  <div class="viewport-shell" id="viewportShell">
+
+    <!-- ================= SCENE 0: ARTWORK SIGNPOST ================= -->
+    <section class="scene scene-home active" id="scene-home">
+      <div class="artwork-stage" id="artworkStage">
+        <img src="assets/sky.png" alt="Sky Backdrop" class="layer-base-bg" />
+
+        <div class="sky-clouds-container">
+          <div class="vector-cloud cloud-1"></div>
+          <div class="vector-cloud cloud-2"></div>
+          <div class="vector-cloud cloud-3"></div>
+        </div>
+
+        <img src="assets/pole.png" alt="Skyline Pole" class="layer-pole-cutout" />
+
+        <img src="assets/shader_diners.png" id="fx-diner" class="pure-halftone-layer" alt="" />
+        <img src="assets/shader_travel.png" id="fx-travel" class="pure-halftone-layer" alt="" />
+        <img src="assets/shader_movies.png" id="fx-movies" class="pure-halftone-layer" alt="" />
+        <img src="assets/shader_events.png" id="fx-events" class="pure-halftone-layer" alt="" />
+
+        <button class="board-hotspot hotspot-diners" data-target="fx-diner" aria-label="Diners" onclick="navigateTo('diner')"></button>
+        <button class="board-hotspot hotspot-travel" data-target="fx-travel" aria-label="Travel" onclick="navigateTo('travel')"></button>
+        <button class="board-hotspot hotspot-movies" data-target="fx-movies" aria-label="Movies" onclick="navigateTo('movies')"></button>
+        <button class="board-hotspot hotspot-events" data-target="fx-events" aria-label="Events" onclick="navigateTo('events')"></button>
+
+        <img src="assets/title.png" alt="Skyline Title" class="layer-title-base" />
+        <img src="assets/shader_title.png" alt="" class="layer-title-shader" id="titleShader" />
+
+        <div class="title-hitbox-zone" id="titleHitbox"></div>
+
+        <div class="dispatch-glass-card">
+          <div class="dispatch-top">
+            <span class="live-pulse-dot"></span>
+            <span class="dispatch-greeting" id="liveGreeting">HELLO EXPLORER</span>
+            <span class="dispatch-time" id="liveClock">--:--:--</span>
+          </div>
+          <div class="dispatch-date" id="liveDate">FETCHING DATE...</div>
+          <div class="dispatch-divider"></div>
+          <p class="dispatch-desc">
+            Welcome to <strong>SKYLINE</strong>, your one-stop destination for discovering the coolest spots across the city to match your vibe. Pick a sign on the post to explore.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCENE 1: MOVIES ================= -->
+    <section class="scene scene-movies" id="scene-movies">
+      <button class="back-btn" onclick="navigateTo('home')"><i class="fa-solid fa-arrow-left"></i> Back to Main</button>
+      <div class="scene-header">
+        <h2>CINEMA & SHOWS</h2>
+        <p>Curated 35mm screenings, Sci-Fi premieres, and Ghibli Classics</p>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-nav prev" onclick="prevItem('movies')"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-stage" id="carousel-movies"></div>
+        <button class="carousel-nav next" onclick="nextItem('movies')"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- ================= SCENE 2: EVENTS ================= -->
+    <section class="scene scene-events" id="scene-events">
+      <button class="back-btn" onclick="navigateTo('home')"><i class="fa-solid fa-arrow-left"></i> Back to Main</button>
+      <div class="scene-header">
+        <h2>LIVE EXPERIENCES</h2>
+        <p>Music fests, collegiate cultural arenas, standup rooms & workshops</p>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-nav prev" onclick="prevItem('events')"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-stage" id="carousel-events"></div>
+        <button class="carousel-nav next" onclick="nextItem('events')"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- ================= SCENE 3: DINERS ================= -->
+    <section class="scene scene-diner" id="scene-diner">
+      <button class="back-btn" onclick="navigateTo('home')"><i class="fa-solid fa-arrow-left"></i> Back to Main</button>
+      <div class="scene-header">
+        <h2>BRUNCH & DINING</h2>
+        <p>Neo-Indian tasting tables, half-off sushi drops, and craft crochet cafes</p>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-nav prev" onclick="prevItem('diner')"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-stage" id="carousel-diner"></div>
+        <button class="carousel-nav next" onclick="nextItem('diner')"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- ================= SCENE 4: TRAVEL ================= -->
+    <section class="scene scene-travel" id="scene-travel">
+      <button class="back-btn" onclick="navigateTo('home')"><i class="fa-solid fa-arrow-left"></i> Back to Main</button>
+      <div class="scene-header">
+        <h2>GETAWAYS & VOYAGES</h2>
+        <p>Curated expedition passes, mountain retreats, and heritage trails</p>
+      </div>
+      <div class="carousel-wrapper">
+        <button class="carousel-nav prev" onclick="prevItem('travel')"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-stage" id="carousel-travel"></div>
+        <button class="carousel-nav next" onclick="nextItem('travel')"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Shared Booking Modal -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeDetails()">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Passes Drawer -->
+  <div class="drawer-scrim" id="drawerScrim" onclick="toggleWallet(false)"></div>
+  <div class="wallet-drawer" id="walletDrawer">
+    <div class="drawer-header">
+      <h3>My Passes & Reservations</h3>
+      <button class="drawer-close" onclick="toggleWallet(false)">&times;</button>
+    </div>
+    <div class="drawer-body" id="walletList"></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
